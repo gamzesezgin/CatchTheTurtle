@@ -5,7 +5,7 @@ import random
 screen = turtle.Screen()
 game_over = False
 score = 0
-FONT = ('Arial', 30, 'normal')
+FONT = ('Arial', 20, 'normal')
 screen.bgcolor("light blue")
 screen.title("Catch The Turtle")
 
@@ -37,7 +37,6 @@ def make_turtle (x, y):
         score += 1
         score_turtle.clear()
         score_turtle.write("Score: {}".format(score), align = "center", font = FONT)
-        print(x,y)
 
     t.onclick(handle_click)
     t.penup()
