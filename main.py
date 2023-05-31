@@ -1,7 +1,7 @@
+import itertools
 import turtle
 import random
 
-# Değişkenler
 screen = turtle.Screen()
 game_over = False
 score = 0
@@ -9,16 +9,12 @@ FONT = ('Arial', 20, 'normal')
 screen.bgcolor("light blue")
 screen.title("Catch The Turtle")
 
-# turtle liste
 turtles = []
 
-#countdown liste
 count_down_turtle = turtle.Turtle()
 
-# Score turtle
 score_turtle = turtle.Turtle()
 
-# Puanı güncelleyen fonksiyon
 def update_score():
     score_turtle.hideturtle()
     score_turtle.color("white")
@@ -51,9 +47,8 @@ x_coordinates = [-20, -10, 0, 10, 20]
 y_coordinates = [20, 10, 0, -10]
 
 def setup_turtles():
-    for x in x_coordinates:
-        for y in y_coordinates:
-            make_turtle(x, y)
+    for x, y in itertools.product(x_coordinates,y_coordinates):
+        make_turtle(x, y)
 
 def hide_turtles():
     for t in turtles:
@@ -65,7 +60,6 @@ def show_turtles_randomly():
         random.choice(turtles).showturtle()
         screen.ontimer(show_turtles_randomly, 500)
 
-# Zamanı gösteren fonksiyon
 def countdown(time):
     global game_over
     count_down_turtle.color("white")
